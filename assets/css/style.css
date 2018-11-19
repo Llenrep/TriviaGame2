@@ -1,0 +1,78 @@
+body{
+    background-image: url(../images/Dag.png);
+    width: 100%;
+}
+
+h1{
+    color: white;
+    font-size: 30px;
+
+}
+
+.under{
+    border: 1px solid black;
+    margin: 40px 510px 20px 510px;
+
+}
+
+ins{
+    text-shadow: 5px 1.3px grey;
+}
+
+/*the actual question gets its own div as to look different from the rest of the buttons*/
+.question {
+    margin: 20px 100px 20px 100px;
+    border: 1px solid grey;
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px 10px #555;
+    color: white;
+}
+
+#actualQuestions{
+    color: white;
+}
+/*This is for both the questions and the response buttons*/
+.Qcontainer{
+    border: 0.7px solid black;
+    border-radius: 10px;
+    margin: 3em; /*Borrowed this from css-tricks.com*/
+    /* display: inline-block;  */
+}
+
+/*for the amount wrong and correct*/
+.ratio-c-w{
+    color: white;
+}
+
+.timer{
+    font-family: monospace;
+    font-size: 30px;
+    color: white; 
+    /* Typography */
+    /* text-align: center; */
+}
+
+#buttons {
+    margin: 0px 0px 40px 0px
+}
+
+#addButton {
+    background: red;
+    float: right;
+}
+
+#pot-ans-1:hover{
+    color: black;
+}
+
+#pot-ans-2:hover{
+    color: black;
+}
+
+#pot-ans-3:hover{
+    color: black;
+}
+
+#pot-ans-4:hover{
+    color: black;
+}
