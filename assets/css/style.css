@@ -48,12 +48,10 @@ ins{
     font-family: monospace;
     font-size: 30px;
     color: white; 
-    /* Typography */
-    /* text-align: center; */
 }
 
 #buttons {
-    margin: 0px 0px 40px 0px
+    margin: 40px 0px 40px 0px
 }
 
 #addButton {
@@ -61,18 +59,19 @@ ins{
     float: right;
 }
 
-#pot-ans-1:hover{
+#inlineRadio1:hover {
     color: black;
 }
 
-#pot-ans-2:hover{
+#inlineRadio2:hover {
     color: black;
 }
 
-#pot-ans-3:hover{
+#inlineRadio3:hover {
     color: black;
 }
 
-#pot-ans-4:hover{
+#inlineRadio4:hover {
     color: black;
 }
+
