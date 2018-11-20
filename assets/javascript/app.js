@@ -1,20 +1,15 @@
 var amountCorrect = 0;
 var amountWrong = 0;
-var time = 1000;
+var time = 100;
 
 var userChoice;
 
 var queryURL;
 var APIkey;
 
+var running = false;
 
-function intro() {
 
-    console.log("Intro");
-
-    $("#questions").html('<h6>Welcome, In this game, You will be presented with a small portion of a song and your goal is to guess the next couple of lyrics. Good Luck</h6>');
-
-}
 
 function nextFunction(array) {
 
@@ -113,33 +108,49 @@ function question8() {
 }
 
 function timer() {
-    
+    running = true;
+    if (running === true){
     var the_timer = setTimeout(function () {
 
         time--; //its a countdown so we are looking for decerements specifically
 
-        var secs = time % 10;
+        var secs = (time)
+        var tenths = ((time/1000));
 
-        document.getElementById("timer").innerHTML = secs;
+        document.getElementById("timer").innerHTML = "Time Left: " + secs
 
         timer();
         
         if (secs === 0) {
 
-            time = 100;
-            $("#timer").html("10");
-            alert("Next Question");
+            running = false;
 
-            clearTimeout(timer, 1000)
+            time = 100;
+
+            alert("Times up!");
+
+            clearTimeout(timer(), 100000)
         };
 
     }, 1000);
+    }
 }
 
 
 $(document).ready(function () { //so as of right now, we got the function to run with timer, problem:
     
-    
+    timer();
+
+    if (running === false) {
+        result();
+        $("#actualQuestions").empty()
+    };
+
+    $("#finished").on("click", function(){
+        result();
+        $("#actualQuestions").empty()
+        running = false;
+    })
 
 }) 
 
