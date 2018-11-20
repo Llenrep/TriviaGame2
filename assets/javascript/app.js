@@ -11,8 +11,10 @@ var running = true;
 
 
 function giphyInsert() { //we fill it in later when we get the first question to work
-
-
+// You want to create a function that creates a name for the attribute based off of your score. The higher the amount correct, the better the word i guess?
+// You want the ajax thingy to take that variable (because it needs to be stored in a variable), do an automatic search and display a random gif
+// based off of the attribute. optional: it can have a h1 tag.... shit idk.. a
+    
 }
 
 
