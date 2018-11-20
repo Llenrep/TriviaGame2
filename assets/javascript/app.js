@@ -7,68 +7,16 @@ var userChoice;
 var queryURL;
 var APIkey;
 
-var running = false;
+var running = true;
 
-
-
-function nextFunction(array) {
-
-}
 
 function giphyInsert() { //we fill it in later when we get the first question to work
 
 }
 
-function result() { //just formats the page to show a "results" screen
-    
-    console.log("Result")
-    $("#buttons").html("");
-    $(".timer").html(""); 
-
-    $(".Correct").text("Your amount correct: " + amountCorrect);
-    $(".Wrong").text("Your amount wrong: " + amountWrong);
-    $("#questions").html('<h2>Congratulations, You got through the little quiz! Here are your results!</h2>');
-}
 
 function question1() {
-    
-    timer();
-    console.log("question 1");
-    $("#questions").html('<h2>"Do You Remeber? The..."</h2>');
-    var ans1 = $("#pot-ans-1").html("<p>21st Night of September...</p>");
-    var ans2 = $("#pot-ans-2").html("<p>The Way...</p>");
-    var ans3 = $("#pot-ans-3").html("<p>How the stars stole the night away...</p>");
-    var ans4 = $("#pot-ans-4").html("<p>My thoughts are with you...</p>");
-
-    correctAnswer = ans1; //equal to the actual html
-
-    $("#pot-ans-1").on("click", function () {
-        userChoice = ans1;
-        amountCorrect++;
-        clearTimeout(timer, 1000)
-
-    });
-
-    $("#pot-ans-2").on("click", function () {
-        userChoice = ans2;
-        amountWrong++;
-        clearTimeout(timer, 1000)
-
-    });
-
-    $("#pot-ans-3").on("click", function () {
-        userChoice = ans3;
-        amountWrong++;
-        clearTimeout(timer, 1000)
-
-    });
-
-    $("#pot-ans-4").on("click", function () {
-        userChoice = ans4;
-        amountWrong++;
-        clearTimeout(timer, 1000)
-
-    });
+    console.log("Question 1");
 
 };
 
@@ -108,14 +56,13 @@ function question8() {
 }
 
 function timer() {
-    running = true;
+    
     if (running === true){
     var the_timer = setTimeout(function () {
 
         time--; //its a countdown so we are looking for decerements specifically
 
         var secs = (time)
-        var tenths = ((time/1000));
 
         document.getElementById("timer").innerHTML = "Time Left: " + secs
 
@@ -129,34 +76,60 @@ function timer() {
 
             alert("Times up!");
 
-            clearTimeout(timer(), 100000)
+            // clearTimeout(timer(), 100000)
         };
-
+        
     }, 1000);
     }
 }
 
+function result() { //just formats the page to show a "results" screen
+    running = false;
+    console.log("Result")
+    $("#buttons").html("");
+    $(".timer").html(""); 
 
-$(document).ready(function () { //so as of right now, we got the function to run with timer, problem:
+    $(".Correct").text("Your amount correct: " + amountCorrect);
+    $(".Wrong").text("Your amount wrong: " + amountWrong);
+    $("#questions").html('<h2>Congratulations, You got through the little quiz! Here are your results!</h2>');
+}
+
+
+$(document).ready(function () { // where are the functions will be run with specific rules and order.... I guess....
     
+        var type1 = document.getElementsByName("inlineRadio1Options");
+        console.log(type1[0])
+        var type2 = document.getElementsByName("inlineRadio2Options");
+        console.log(type2[1])
+        var type3 = document.getElementsByName("inlineRadio3Options");
+        console.log(type3[0])
+        var type4 = document.getElementsByName("inlineRadio4Options");
+        console.log(type4[2])
+        var type5 = document.getElementsByName("inlineRadio5Options");
+        console.log(type5[3])
+        var type6 = document.getElementsByName("inlineRadio6Options");
+        console.log(type6[1])
+        var type7 = document.getElementsByName("inlineRadio7Options");
+        console.log(type7[3])
+        var type8 = document.getElementsByName("inlineRadio8Options");
+        console.log(type8[1])
+        
+    
+
     timer();
 
     if (running === false) {
         result();
         $("#actualQuestions").empty()
+        $("#timer").empty()
     };
 
     $("#finished").on("click", function(){
+        running = false;
         result();
         $("#actualQuestions").empty()
-        running = false;
+        $("#timer").empty()
+    
     })
 
 }) 
-
-// try making all the functions have a ten second timer and put the functions under another timeout within the ready function
-// making a the function run for the full 100 seconds. 
-
-// You could do that or you could somehow manage to revert back to the original way run the timer for the quiz as a whole. 
-// stupid fucking timer interval shit wont work.
-// need to check on youtube how to properly use such and such with functions. and see the types of tricks you can pull off.
